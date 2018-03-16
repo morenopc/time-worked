@@ -53,6 +53,7 @@ coverage.xml
 *.log
 static
 *.sqlite3
+.env
 
 # Sphinx documentation
 docs/_build/

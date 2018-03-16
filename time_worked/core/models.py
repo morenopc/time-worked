@@ -28,4 +28,4 @@ class TimeWorked(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     date = models.DateField(default=date.today)
-    time = models.TimeFiled()
+    time = models.TimeField()

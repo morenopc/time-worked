@@ -16,7 +16,7 @@ class Project(models.Model):
     """Project records"""
 
     name = models.CharField(max_length=128)
-    employees = models.ManyToManyField(Employee, through='TimeWorked')
+    employees = models.ManyToManyField(Employee)
 
     def __str__(self):
         return '%s' % self.name
@@ -29,3 +29,9 @@ class TimeWorked(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     date = models.DateField(default=datetime.date.today)
     time = models.TimeField(default=datetime.time(0, 0))
+
+    class Meta:
+        unique_together = (('project', 'employee', 'date'), )
+
+    def __str__(self):
+        return '%s' % self.name

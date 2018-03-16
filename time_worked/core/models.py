@@ -1,4 +1,4 @@
-from datetime import date 
+import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -27,5 +27,5 @@ class TimeWorked(models.Model):
 
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    date = models.DateField(default=date.today)
-    time = models.TimeField()
+    date = models.DateField(default=datetime.date.today)
+    time = models.TimeField(default=datetime.time(0, 0))

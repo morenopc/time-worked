@@ -17,11 +17,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from core.views import TimeWorkedList
+from core.views import TimeWorkedView
 
 
 urlpatterns = [
-	path('', TimeWorkedList.as_view()),
+	path('', TimeWorkedView.as_view()),
     path('admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 # Let's django serve media files

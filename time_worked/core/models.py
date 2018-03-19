@@ -34,4 +34,7 @@ class TimeWorked(models.Model):
         unique_together = (('project', 'employee', 'date'), )
 
     def __str__(self):
-        return '%s' % self.name
+        return '%s %s %s' % (
+            self.project.name,
+            self.employee.user.username,
+            self.date.isoformat())

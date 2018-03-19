@@ -43,34 +43,42 @@
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h2">Worked Time</h1>
           </div>
-          <h3>{{ yesterday|date }} (yesterday)</h3>
+          <h3>{{ yesterday|date }}</h3>
+          {% if worked_time_table %}
           <table class="table table-striped table-bordered">
-          <!-- Projects -->
-          {% for project in object_list %}
-            {% if forloop.first %}
             <thead>
               <tr>
+                <!-- Employees fullname-->
                 <th scope="col"></th>
-                <!-- Employees -->
-                {% for employee in project.employees.all %}
-                <th scope="col">{{ employee.user.get_full_name }}</th>
+                {% for employee in employees %}
+                <th scope="col">{{ employee.1 }} {{ employee.2 }}</th>
                 {% endfor %}
               </tr>
             </thead>
             <tbody>
-            {% endif %}
+            {% for rows in worked_time_table %}
               <tr>
-                <th scope="row">{{ project.name }}</th>
-                {% for employee in project.employees.all %}
-                  {% get employee.timeworked_set date=yesterday project__pk=project.pk as worked %}
-                <td>{% if worked %}{{ worked.time|time:"H:i:s" }}{% else %}-{% endif %}</td>
-                {% endfor %}
+              {% for row in rows %}
+                {% if forloop.first %}
+                  <!-- project name -->
+                  <th scope="row">{{ row }}</th>
+                {% else %}
+                  {% if row %}
+                    <!-- time worked -->
+                    <td>{{ row|time:"H:i:s" }}</td>
+                    {% else %}
+                    <td>-</td>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
               </tr>
             {% endfor %}
             </tbody>
           </table>
           <button type="button" class="btn btn-light" onclick="window.print();return false;"><i data-feather="printer"></i></button>
-
+          {% else %}
+          <div>No Data</div>
+          {% endif %}
         </main>
       </div>
     </div>

@@ -35,3 +35,16 @@ $ . env/bin/activate
 (env) $ python manage.py runserver
 ```
 
+## Usage
+
+### Get default yesterday table
+
+```
+http://localhost:8000/
+```
+
+### Get filtered by day table
+
+```
+http://localhost:8000/?d=2018-03-20
+```

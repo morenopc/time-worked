@@ -48,7 +48,7 @@ class TimeWorkedView(TemplateView):
             for employee in self.employees:
                 try:
                     worked = self.queryset.get(
-                        project=project[0], 
+                        project=project[0],
                         employee=employee[0])
                     rows.append(worked.time)
                 except Exception as e:
@@ -61,7 +61,7 @@ class TimeWorkedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         context['yesterday'] = self.yesterday
         context['worked_time_table'] = self._get_worked_time()
         context['employees'] = self.employees  # employee names

@@ -3,7 +3,6 @@ from django import template
 register = template.Library()
 
 
-
 @register.simple_tag
 def get(qs, **kwargs):
     """Template tag which allows queryset get.

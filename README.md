@@ -1,5 +1,23 @@
 # Time Worked
 
+## Approach
+
+In columns there should be employees, in rows there should be projects and in the cells in the middle there should be time that a given employee spent working on the given project. Only the projects and employees which worked on a given day should be presented. The table is rendered for one day which by default is yesterday.
+
+So for example:
+```
+2018-03-13 (yesterday) Time Table
++-----------+------+--------+------+------+
+|           | Noah | Olivia | Liam | Ava  |
++-----------+------+--------+------+------+
+| Project A | 40h  | 20h    |   -  | 120h |
++-----------+------+--------+------+------+
+| Project B | 8h   | 40h    | 160h |   -  |
++-----------+------+--------+------+------+
+| Project C |   -  | 240h   | 40h  | 10h  |
++-----------+------+--------+------+------+
+```
+
 ## Resources
 - Python 3.6.4 / Django 2.0.3
 - Django REST framework 3.7.7 (and other apps)

@@ -66,3 +66,4 @@ http://localhost:8000/
 ```
 http://localhost:8000/?d=2018-03-20
 ```
+[time worked table](https://github.com/morenopc/time-worked/raw/master/time_worked/static/img/2018-04-11-Selection-003.jpg)
